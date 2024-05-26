@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
 
     <style>
@@ -18,21 +21,64 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            background-color: #000000;
             }
 
         .split-line {
             width: 100%;
-            height: 10vh;
-            border-top: 4px solid black;
-            border-color: black;
+            height: 0.5vh;
+            /* border-top: 4px solid #00eb00; */
             margin: 0;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #ff0000, #04ff00);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            transform: translate3d(0, 0, 0);
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
             }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
+
+        .hello {
+            color: #00ff00
+        }
+        .main-text {
+            /* overflow-x:visible; */
+            font-family: 'Roboto Mono';
+            width: 500px;
+            color:#00ff22;
+            word-wrap: break-word; /* Для поддержки старых браузеров */
+            overflow-wrap: break-word; /* Современный алиас */
+            font-size: 20px;
+        }
 
     </style>
 </head>
 <body>
-    <center><h1>Hello in project REV.*</h1></center>
-    <div class="split-line"></div>
+    <div class="content">
+    <center>
+        <div class="hello"><h1>Hello in project REV.*</h1></div>
+        <div class="split-line"></div>
+        <div class="main-text">
+
+                Ipsum sapien vitae habitasse nunc habitasse vulputate sit odio. Eget elit. Nunc et vel sodales eget amet dapibus ornare libero, amet, dapibus in mauris ex. Id sit dictumst. Ipsum in dictum cursus cras et morbi ex. Sit pellentesque nunc est.
+
+        </div> 
+    </center>
+
+
+    </div>
+
+
 </body>
 </html>
