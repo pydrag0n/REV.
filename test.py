@@ -1,5 +1,4 @@
 import requests
-import random 
 import message_printer
 
 ms = message_printer.MessagePrinter()

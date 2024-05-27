@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify, render_template, redirect
 import message_printer
+from config import PORT, HOST, PASSWORD, ID, DEBUG
 
 ms = message_printer.MessagePrinter()
 app = Flask(__name__)
 
-clientid = 5832
-password_home = 5713621
+clientid = ID
+password_home = PASSWORD
 
 @app.route('/', methods=["GET"]) 
 def mainpage():
@@ -38,4 +39,4 @@ def validate_data():
     else: 
         return redirect("/", 200)
 if __name__ == '__main__':
-    app.run(host="26.199.90.194", port=5000, debug=False)
+    app.run(host=HOST, port=PORT, debug=DEBUG)
