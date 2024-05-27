@@ -5,7 +5,7 @@ ms = message_printer.MessagePrinter()
 app = Flask(__name__)
 
 clientid = 5832
-password_home = 2631561
+password_home = 5713621
 
 @app.route('/', methods=["GET"]) 
 def mainpage():
@@ -15,7 +15,6 @@ def mainpage():
 @app.route('/validate_data', methods=['POST', 'GET'])
 def validate_data():
     if request.method == "POST":
-        print(request)
         data = request.json 
         # request: {"myid": int:5812, "password": int:12123131..., "ip": "127.0.0.1"}
 
@@ -34,10 +33,9 @@ def validate_data():
                 response = ({"error": "Invalid id"}, 400)
         else:
             response = ({"error": "Data is invalid"}, 400)
-        
+        print(data)
         return jsonify(response[0]), response[1]
     else: 
         return redirect("/", 200)
-    
 if __name__ == '__main__':
     app.run(host="26.199.90.194", port=5000, debug=False)
