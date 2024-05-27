@@ -5,7 +5,7 @@ ms = message_printer.MessagePrinter()
 app = Flask(__name__)
 
 clientid = 5832
-password_home = 177
+password_home = 2631561
 
 @app.route('/', methods=["GET"]) 
 def mainpage():
@@ -26,17 +26,18 @@ def validate_data():
             ip = data['ip']
             if myid == clientid:
                 if password == password_home:
-                    response = {"message": "Data is valid", "premium": "1"}
-                    return jsonify(response), 200
+                    response = ({"message": "Data is valid", "premium": "1"}, 200)
+                    print("========!!! WINNER WINNER !!!===========")
                 else:
-                    response = {"error": "Invalid password"}
+                    response = ({"error": "Invalid password"}, 400)
             else: 
-                response = {"error": "Invalid id"}
+                response = ({"error": "Invalid id"}, 400)
         else:
-            response = {"error": "Data is invalid"}
+            response = ({"error": "Data is invalid"}, 400)
         
-        return jsonify(response), 400
+        return jsonify(response[0]), response[1]
     else: 
         return redirect("/", 200)
+    
 if __name__ == '__main__':
     app.run(host="26.199.90.194", port=5000, debug=False)
